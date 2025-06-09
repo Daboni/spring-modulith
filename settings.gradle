@@ -1,0 +1,4 @@
+rootProject.name = 'demo'
+include 'product'
+include 'customer'
+include 'service'

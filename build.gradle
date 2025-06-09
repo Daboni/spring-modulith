@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.skt.nova'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+ext {
+    set('springModulithVersion', "1.4.0")
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.modulith:spring-modulith-bom:${springModulithVersion}"
+        }
+    }
+
+    dependencies {
+        implementation 'org.springframework.modulith:spring-modulith-starter-core'
+        compileOnly 'org.projectlombok:lombok:1.18.32'
+        annotationProcessor 'org.projectlombok:lombok:1.18.32'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation 'org.springframework.modulith:spring-modulith-starter-test'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+
+}
+
+tasks.named('jar') {
+    enabled = false
+}
