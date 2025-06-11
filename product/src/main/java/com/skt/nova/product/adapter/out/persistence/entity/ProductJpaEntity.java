@@ -15,7 +15,7 @@ import java.util.UUID;
 public class ProductJpaEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
     private Long productId; //UUID
 

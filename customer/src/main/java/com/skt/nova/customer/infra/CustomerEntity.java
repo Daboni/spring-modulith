@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
+@Table(name = "customer", schema = "customer")
 public class CustomerEntity {
 
     @Id

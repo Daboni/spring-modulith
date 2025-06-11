@@ -17,7 +17,7 @@ import java.util.UUID;
 public class SubscriptionJpaEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "subscription_id")
     private Integer subscriptionId;
 

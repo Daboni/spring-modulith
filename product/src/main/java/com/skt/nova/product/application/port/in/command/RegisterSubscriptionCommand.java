@@ -1,6 +1,6 @@
 package com.skt.nova.product.application.port.in.command;
 
-import com.skt.nova.product.adapter.in.event.payload.SubscriptionEvent;
+import com.skt.nova.product.adapter.in.event.payload.OrderCompletedEvent;
 import com.skt.nova.product.adapter.in.web.dto.ProductRequest;
 import com.skt.nova.product.constants.SubscriptionStatus;
 import lombok.AccessLevel;
@@ -28,10 +28,10 @@ public class RegisterSubscriptionCommand {
         this.active = active;
     }
 
-    public static RegisterSubscriptionCommand of(final SubscriptionEvent subscriptionEvent) {
+    public static RegisterSubscriptionCommand of(final OrderCompletedEvent subscriptionEvent) {
         return RegisterSubscriptionCommand.builder()
                 .productId(subscriptionEvent.productId())
-                .userId(subscriptionEvent.userId())
+                .userId(subscriptionEvent.customerId())
                 .startDate(LocalDate.now())
                 .active(SubscriptionStatus.ACTIVE)
                 .build();
