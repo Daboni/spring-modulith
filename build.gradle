@@ -20,6 +20,7 @@ configurations {
 
 ext {
     set('springModulithVersion', "1.4.0")
+    set('springBootVersion', "3.5.0")
 }
 
 subprojects {
@@ -34,6 +35,7 @@ subprojects {
     dependencyManagement {
         imports {
             mavenBom "org.springframework.modulith:spring-modulith-bom:${springModulithVersion}"
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
         }
     }
 
