@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:p6spy:postgresql://localhost:5432/nova
+    #    driver-class-name: org.postgresql.Driver
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 512
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+    show-sql: true
+
+  sql:
+    init:
+      mode: never
